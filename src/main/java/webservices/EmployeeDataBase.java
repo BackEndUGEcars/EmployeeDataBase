@@ -61,4 +61,14 @@ public class EmployeeDataBase implements IEmployeeDataBase{
                 "],    'idMap' : "+ idMap +"}";
     }
 
+    long getIDofLogin(String login, String password){
+
+        for (Map.Entry<Long, IEmployee> entry : employeeMap.entrySet()) {
+            if (login.equals(entry.getValue().getLogin()) && entry.getValue().isPasswordCorrect(password)){
+                return entry.getKey();
+            }
+        }
+        return -1L;
+    }
+
 }

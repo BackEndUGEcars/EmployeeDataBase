@@ -7,6 +7,8 @@ public interface IEmployee {
     String getLastName();
 
     String toJson(Long id);
+    String getLogin();
+    boolean isPasswordCorrect(String password);
 
 
 }

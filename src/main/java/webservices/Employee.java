@@ -7,6 +7,8 @@ import org.json.simple.parser.ParseException;
 public class Employee implements IEmployee{
     private final String firstName;
     private final String lastName;
+    private String login;
+    private String password;
 
 
 
@@ -46,5 +48,14 @@ public class Employee implements IEmployee{
 
 
         return employee;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+
+    public boolean isPasswordCorrect(String password){
+        return password.equals(this.password);
     }
 }
