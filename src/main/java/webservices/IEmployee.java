@@ -2,13 +2,15 @@ package webservices;
 
 import org.json.simple.parser.ParseException;
 
-public interface IEmployee {
-    String getFirstName();
-    String getLastName();
+import java.rmi.RemoteException;
 
-    String toJson(Long id);
-    String getLogin();
-    boolean isPasswordCorrect(String password);
+public interface IEmployee {
+    String getFirstName() throws RemoteException;
+    String getLastName() throws RemoteException;
+
+    String toJson(Long id) throws RemoteException;
+    String getLogin() throws RemoteException;
+    boolean isPasswordCorrect(String password) throws RemoteException;
 
 
 }

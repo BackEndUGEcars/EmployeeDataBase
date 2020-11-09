@@ -4,6 +4,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import java.rmi.RemoteException;
+
 public class Employee implements IEmployee{
     private final String firstName;
     private final String lastName;
@@ -17,11 +19,11 @@ public class Employee implements IEmployee{
         this.lastName = lastName;
     }
 
-    public String getFirstName() {
+    public String getFirstName() throws RemoteException {
         return firstName;
     }
 
-    public String getLastName() {
+    public String getLastName() throws RemoteException {
         return lastName;
     }
 
@@ -30,7 +32,7 @@ public class Employee implements IEmployee{
         return firstName + " " + lastName;
     }
 
-    public String toJson(Long id){
+    public String toJson(Long id) throws RemoteException {
         return "{" +
                 "'id':" + id +
                 ", 'firstName':'" + firstName + '\'' +
@@ -50,12 +52,12 @@ public class Employee implements IEmployee{
         return employee;
     }
 
-    public String getLogin() {
+    public String getLogin() throws RemoteException {
         return login;
     }
 
 
-    public boolean isPasswordCorrect(String password){
+    public boolean isPasswordCorrect(String password) throws RemoteException{
         return password.equals(this.password);
     }
 }
