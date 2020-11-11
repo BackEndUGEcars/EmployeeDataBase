@@ -1,4 +1,4 @@
-package webservices;
+package fr.uge.webservices;
 
 import org.json.simple.parser.ParseException;
 

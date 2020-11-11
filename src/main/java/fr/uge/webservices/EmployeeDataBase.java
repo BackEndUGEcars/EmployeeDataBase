@@ -1,4 +1,4 @@
-package webservices;
+package fr.uge.webservices;
 
 import org.apache.commons.io.IOUtils;
 import org.json.simple.JSONArray;
@@ -9,10 +9,16 @@ import org.json.simple.parser.ParseException;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.*;
 
-public class EmployeeDataBase implements IEmployeeDataBase{
-    private Map<Long, IEmployee> employeeMap = new HashMap<>(); //Long for id
+public class EmployeeDataBase extends UnicastRemoteObject implements IEmployeeDataBase{
+	
+    protected EmployeeDataBase() throws RemoteException {
+		super();
+	}
+
+	private Map<Long, IEmployee> employeeMap = new HashMap<>(); //Long for id
     private long idMap = 0;
 
     public Map<Long, IEmployee> getEmployeeMap() throws RemoteException {
@@ -63,7 +69,7 @@ public class EmployeeDataBase implements IEmployeeDataBase{
                 "],    'idMap' : "+ idMap +"}";
     }
 
-    long getIDofLogin(String login, String password) throws RemoteException {
+    public long getIDofLogin(String login, String password) throws RemoteException {
 
         for (Map.Entry<Long, IEmployee> entry : employeeMap.entrySet()) {
             if (login.equals(entry.getValue().getLogin()) && entry.getValue().isPasswordCorrect(password)){

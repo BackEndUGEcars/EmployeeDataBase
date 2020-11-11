@@ -1,12 +1,13 @@
-package webservices;
+package fr.uge.webservices;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import java.io.Serializable;
 import java.rmi.RemoteException;
 
-public class Employee implements IEmployee{
+public class Employee implements IEmployee, Serializable{
     private final String firstName;
     private final String lastName;
     private String login;
