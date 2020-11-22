@@ -49,7 +49,8 @@ public class Employee implements IEmployee, Serializable {
                 "'id':" + id +
                 ", 'firstName':'" + firstName + '\'' +
                 ", 'lastName':'" + lastName + '\'' +
-
+                ", 'login':'" + login + '\'' +
+                ", 'password':'" + password + '\'' +
                 '}';
     }
 
@@ -57,8 +58,10 @@ public class Employee implements IEmployee, Serializable {
         JSONParser parser = new JSONParser();
         var jsonObject = (JSONObject) parser.parse(json);
         var first = (String) jsonObject.get("firstName");
-        var  last = (String) jsonObject.get("lastName");
-        var employee = new Employee(first, last);
+        var last = (String) jsonObject.get("lastName");
+        var login = (String) jsonObject.get("login");
+        var password = (String) jsonObject.get("password");
+        var employee = new Employee(first, last, login, password);
 
 
         return employee;
