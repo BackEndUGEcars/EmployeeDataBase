@@ -9,11 +9,16 @@ import org.json.simple.parser.ParseException;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.*;
 
-public class EmployeeDataBase implements IEmployeeDataBase{
+public class EmployeeDataBase extends UnicastRemoteObject implements IEmployeeDataBase{
     private Map<Long, IEmployee> employeeMap = new HashMap<>(); //Long for id
     private long idMap = 0;
+
+    public EmployeeDataBase() throws RemoteException {
+        super();
+    }
 
     public Map<Long, IEmployee> getEmployeeMap() throws RemoteException {
         return Collections.unmodifiableMap(employeeMap);
