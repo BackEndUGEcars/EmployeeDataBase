@@ -4,22 +4,22 @@ import org.apache.commons.io.IOUtils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.text.ParseException;
 import java.util.*;
 
 public class EmployeeDataBase extends UnicastRemoteObject implements IEmployeeDataBase{
 	
-    protected EmployeeDataBase() throws RemoteException {
-		super();
-	}
-
 	private Map<Long, IEmployee> employeeMap = new HashMap<>(); //Long for id
     private long idMap = 0;
+
+    public EmployeeDataBase() throws RemoteException {
+        super();
+    }
 
     public Map<Long, IEmployee> getEmployeeMap() throws RemoteException {
         return Collections.unmodifiableMap(employeeMap);
@@ -40,12 +40,12 @@ public class EmployeeDataBase extends UnicastRemoteObject implements IEmployeeDa
     }
 
 
-    public void init() throws IOException, ParseException {
+    public void init() throws IOException, ParseException, org.json.simple.parser.ParseException, RemoteException {
         var json = IOUtils.toString(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("test.json")), StandardCharsets.UTF_8);
         JSONParser parser = new JSONParser();
 
 
-        var jsonObject = (JSONObject) parser.parse(json);
+        JSONObject jsonObject = (JSONObject) parser.parse(json);
         var employees = (JSONArray) jsonObject.get("employees");
         var iterator = employees.iterator();
         while (iterator.hasNext()) {

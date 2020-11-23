@@ -3,14 +3,16 @@
           {
             "id" : 0,
             "firstName" : "Armand",
-            "lastName" : "Liégey"
-
+            "lastName" : "Liégey",
+            "login" : "aliegey",
+            "password" : "mypsw"
           },
           {
             "id" : 1,
             "firstName" : "sfbsfdsdfg",
-            "lastName" : "Lisdgsdgsdgdgégey"
-
+            "lastName" : "Lisdgsdgsdgdgégey",
+			"login" : "super",
+            "password" : "super"
           }
 
     ],

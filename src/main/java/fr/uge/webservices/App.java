@@ -11,9 +11,9 @@ public class App {
     	try {
 			LocateRegistry.createRegistry(7778);
 			IEmployeeDataBase c = new EmployeeDataBase();
+			c.init();
 			Naming.bind("rmi://localhost:7778/EmployeeDataBase", c);
-			System.setProperty("java.security.policy", "sec.policy");
-			System.setSecurityManager(new SecurityManager());
+			System.out.println("RMI ok");
 		} catch (Exception e) {
 			System.err.println("Problem: " + e);
 		}
