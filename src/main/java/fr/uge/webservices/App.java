@@ -13,14 +13,9 @@ public class App {
 			IEmployeeDataBase c = new EmployeeDataBase();
 			c.init();
 			Naming.bind("rmi://localhost:7778/EmployeeDataBase", c);
-			System.out.println("RMI ok");
+			System.out.println("EmployeeDataBase RMI loaded");
 		} catch (Exception e) {
 			System.err.println("Problem: " + e);
 		}
-    	/*
-        var employeeBase = new EmployeeDataBase();
-        employeeBase.init();
-
-        System.out.println(employeeBase.toJson());*/
     }
 }

@@ -9,10 +9,24 @@
           },
           {
             "id" : 1,
-            "firstName" : "sfbsfdsdfg",
-            "lastName" : "Lisdgsdgsdgdgégey",
+            "firstName" : "Dimitri",
+            "lastName" : "Valnev",
 			"login" : "super",
             "password" : "super"
+          },
+          {
+            "id" : 2,
+            "firstName" : "Louis",
+            "lastName" : "Billaut",
+			"login" : "lbillaut",
+            "password" : "supermdp"
+          },
+          {
+            "id" : 3,
+            "firstName" : "PJ",
+            "lastName" : "Besnard",
+			"login" : "pbesna01",
+            "password" : "entermdp"
           }
 
     ],
